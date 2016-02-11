@@ -7,17 +7,12 @@
 >
 
     <testsuites>
-        <testsuite name="Symfony CmfRoutingBundle Test Suite">
+        <testsuite name="Symfony CmfRestBundle Test Suite">
             <directory>./Tests/Unit</directory>
         </testsuite>
 
-        <testsuite name="phpcr">
-            <directory>./Tests/Functional</directory>
-            <exclude>./Tests/Functional/Doctrine/Orm</exclude>
-        </testsuite>
-
-        <testsuite name="orm">
-            <directory>./Tests/Functional/Doctrine/Orm</directory>
+        <testsuite name="Symfony CmfRestBundle WebTests Suite">
+            <directory>./Tests/WebTest</directory>
         </testsuite>
     </testsuites>
 
