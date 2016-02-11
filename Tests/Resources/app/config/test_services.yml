@@ -1,0 +1,5 @@
+services:
+  test.controller:
+    class: Symfony\Cmf\Bundle\RestBundle\Tests\Functional\Controller\TestController
+    calls:
+      - [ setContainer, [ @service_container]]

@@ -32,7 +32,17 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('cmf_rest');
+        $treeBuilder->root('cmf_rest')
+            ->children()
+                ->arrayNode('dynamic')
+                    ->addDefaultsIfNotSet()
+                    ->canBeEnabled()
+                    ->children()
+                        ->scalarNode('crud_controller_by_method')->defaultNull()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }

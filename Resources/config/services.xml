@@ -2,10 +2,13 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
-    <parameters>
-    </parameters>
-
     <services>
+        <service
+                id='cmf_rest.enhancer.crud_controller_by_method'
+                class="Symfony\Cmf\Bundle\RestBundle\Enhancer\CRUDControllerByMethodEnhancer">
+            <argument>null</argument>
+            <argument>_controller</argument>
+            <argument>%cmf_rest.crud_controller_by_method%</argument>
+        </service>
     </services>
 </container>

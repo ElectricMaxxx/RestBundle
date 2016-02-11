@@ -14,10 +14,7 @@ namespace Symfony\Cmf\Bundle\RestBundle\DependencyInjection;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Loader\LoaderInterface;
 
 /**
  * @author Maximilian Berghoff <maximilian.berghoff@gmx.de>
@@ -31,6 +28,12 @@ class CmfRestExtension extends Extension
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
+
+        // if any mappings are defined, set the respective route enhancer
+        if (!empty($config['dynamic'])) {
+            $this->loadDynamicConfiguration($config['dynamic'], $container);
+        }
     }
 
 
@@ -47,5 +50,16 @@ class CmfRestExtension extends Extension
     public function getNamespace()
     {
         return 'http://cmf.symfony.com/schema/dic/rest';
+    }
+
+    /**
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
+    private function loadDynamicConfiguration($config, ContainerBuilder $container)
+    {
+        if (!empty($config['crud_controller_by_method'])) {
+            $container->setParameter($this->getAlias() . '.crud_controller_by_method', $config['crud_controller_by_method']);
+        }
     }
 }

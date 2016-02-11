@@ -1,0 +1,14 @@
+cmf_routing:
+    chain:
+        routers_by_id:
+            cmf_routing.dynamic_router: 20
+            router.default: 100
+    dynamic:
+        enabled: true
+        generic_controller: test.controller:indexAction
+
+cmf_rest:
+    dynamic:
+        enabled: true
+        crud_controller_by_method: test.controller
+
