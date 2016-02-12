@@ -1,0 +1,5 @@
+cmf_rest:
+    dynamic:
+      enabled: true
+      crud_controller_by_method: test.controller
+

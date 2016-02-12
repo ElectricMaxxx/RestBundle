@@ -1,0 +1,5 @@
+<container xmlns="http://symfony.com/schema/dic/services">
+    <config xmlns="http://cmf.symfony.com/schema/dic/rest">
+        <dynamic crud_controller_by_method="test.controller"></dynamic>
+    </config>
+</container>
