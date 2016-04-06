@@ -12,3 +12,9 @@ cmf_rest:
         enabled: true
         crud_controller_by_method: test.controller
 
+sonata_admin:
+    extensions:
+        cmf_core.admin_extension.child:
+            implements:
+                - Symfony\Cmf\Bundle\CoreBundle\Model\ChildInterface
+
