@@ -32,6 +32,13 @@ class CmfRestExtensionTest extends AbstractExtensionTestCase
             'dynamic' => array(
                 'enabled' => true,
                 'crud_controller_by_method' => 'test.controller',
+                'controller_by_class' => array(
+                    'My/Class' => array(
+                        array('methods' => array('put', 'post'), 'controller' => 'controller:testAction'),
+                        array('methods' => array('any'), 'controller' => 'controller:testMoreAction'),
+                    ),
+                    'Other/Class' => 'controller:otherAction'
+                ),
             ),
         ));
 

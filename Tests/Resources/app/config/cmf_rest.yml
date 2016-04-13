@@ -11,10 +11,17 @@ cmf_rest:
     dynamic:
         enabled: true
         crud_controller_by_method: test.controller
+        controller_by_class:
+            My\Class:
+                -
+                    methods: [put, post]
+                    controller: service:method
+                -
+                    method: [any] # please note that the dedicated PUT and POST methods will be handled by the previous configured controller
+                    controller: service:readMethod
 
 sonata_admin:
     extensions:
         cmf_core.admin_extension.child:
             implements:
                 - Symfony\Cmf\Bundle\CoreBundle\Model\ChildInterface
-
