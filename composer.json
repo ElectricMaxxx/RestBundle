@@ -1,7 +1,7 @@
 {
-    "name": "symfony-cmf/rest-bundle",
+    "name": "electricmaxxx/rest-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony RoutingBundle",
+    "description": "My REST bundle for the cmf - a little sandbox",
     "keywords": ["routing", "database", "rest"],
     "homepage": "http://cmf.symfony.com",
     "license": "MIT",
@@ -44,6 +44,4 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
-        }
-    }
-}
+        My REST bundle for the cmf - a little sandbox
