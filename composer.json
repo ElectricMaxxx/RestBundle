@@ -2,7 +2,11 @@
     "name": "electricmaxxx/rest-bundle",
     "type": "symfony-bundle",
     "description": "My REST bundle for the cmf - a little sandbox",
-    "keywords": ["routing", "database", "rest"],
+    "keywords": [
+        "routing",
+        "database",
+        "rest"
+    ],
     "homepage": "http://cmf.symfony.com",
     "license": "MIT",
     "authors": [
@@ -30,10 +34,8 @@
         "doctrine/phpcr-odm": "To enable support for the PHPCR ODM documents",
         "doctrine/phpcr-bundle": "To enable support for the PHPCR ODM documents",
         "doctrine/orm": "To enable support for the ORM entities",
-
         "symfony-cmf/content-bundle": "To optionally use the configured value for 'content_basepath' from the CoreBundle",
         "symfony-cmf/core-bundle": "To use the provided Doctrine\\Phpcr documents and for easier configuration",
-
         "sonata-project/doctrine-phpcr-admin-bundle": "To provide an admin interface for the PHPCR ODM documents"
     },
     "autoload": {
@@ -44,4 +46,6 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
-        My REST bundle for the cmf - a little sandbox
+        }
+    }
+}
