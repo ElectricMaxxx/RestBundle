@@ -42,8 +42,8 @@ class CRUDControllerByMethodEnhancer extends FieldPresenceEnhancer
     {
         $defaults = parent::enhance($defaults, $request);
 
-        if (isset($defaults[$this->target]) && in_array($request->getMethod(), $this->supportedMethods)) {
-            $defaults[$this->target] .= $this->supportedMethods[$request->getMethod()];
+        if (isset($defaults[$this->target]) && array_key_exists($request->getMethod(), $this->supportedMethods)) {
+            $defaults[$this->target] .= ':'.$this->supportedMethods[$request->getMethod()];
         }
 
         return $defaults;
