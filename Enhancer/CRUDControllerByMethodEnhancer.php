@@ -27,7 +27,7 @@ class CRUDControllerByMethodEnhancer extends FieldPresenceEnhancer
     private $supportedMethods = [
         Request::METHOD_PUT => 'updateAction',
         Request::METHOD_DELETE => 'deleteAction',
-        Request::METHOD_POST => 'updateAction',
+        Request::METHOD_POST => 'createAction',
         Request::METHOD_GET => 'indexAction',
         Request::METHOD_PATCH => 'updateAction',
     ];
