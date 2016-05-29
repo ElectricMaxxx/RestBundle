@@ -25,11 +25,11 @@ class CRUDControllerByMethodEnhancer extends FieldPresenceEnhancer
      * @var array
      */
     private $supportedMethods = [
-        Request::METHOD_PUT,
-        Request::METHOD_DELETE,
-        Request::METHOD_POST,
-        Request::METHOD_GET,
-        Request::METHOD_PATCH,
+        Request::METHOD_PUT => 'updateAction',
+        Request::METHOD_DELETE => 'deleteAction',
+        Request::METHOD_POST => 'updateAction',
+        Request::METHOD_GET => 'indexAction',
+        Request::METHOD_PATCH => 'updateAction',
     ];
 
     /**
@@ -43,7 +43,7 @@ class CRUDControllerByMethodEnhancer extends FieldPresenceEnhancer
         $defaults = parent::enhance($defaults, $request);
 
         if (isset($defaults[$this->target]) && in_array($request->getMethod(), $this->supportedMethods)) {
-            $defaults[$this->target] .= sprintf(':%sAction', strtolower($request->getMethod()));
+            $defaults[$this->target] .= $this->supportedMethods[$request->getMethod()];
         }
 
         return $defaults;
